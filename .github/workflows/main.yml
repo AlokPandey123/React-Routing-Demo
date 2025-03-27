@@ -8,8 +8,8 @@ on:
 env:
   AZURE_ACR_NAME: subtlechatbotregistry
   AZURE_ACR_REGISTRY: subtlechatbotregistry.azurecr.io
-  REPO_NAME: Vat-fe
-  IMAGE_NAME: subtlechatbot
+  REPO_NAME: React-Routing-Demo
+  IMAGE_NAME: main
   GIT_USER: ${{ secrets.GIT_USER }}
   GIT_PASSWORD: ${{ secrets.GIT_PASSWORD }}
 
@@ -22,18 +22,18 @@ jobs:
         with:
           ref: subtleChatbot
 
-      - name: Clone or Update Vat-fe Repository
+      - name: Clone or Update React-Routing-Demo Repository
         run: |
           if [ -d "${{ env.REPO_NAME }}" ]; then
             echo "Repository already exists. Pulling latest changes..."
             cd ${{ env.REPO_NAME }}
             git reset --hard
             git clean -fd
-            git checkout subtleChatbot
-            git pull origin subtleChatbot
+            git checkout main
+            git pull origin main
           else
             echo "Cloning repository..."
-            git clone https://$GIT_USER:$GIT_PASSWORD@github.com/BaariLabs/${{ env.REPO_NAME }} ${{ env.REPO_NAME }}
+            git clone https://$GIT_USER:$GIT_PASSWORD@github.com/AlokPandey123/${{ env.REPO_NAME }} ${{ env.REPO_NAME }}
             cd ${{ env.REPO_NAME }}
             git checkout subtleChatbot
             git pull origin subtleChatbot
