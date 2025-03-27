@@ -3,7 +3,7 @@ name: Build and Push to ACR
 on:
   push:
     branches:
-      - subtleChatbot
+      - main
 
 env:
   AZURE_ACR_NAME: subtlechatbotregistry
